@@ -1,11 +1,11 @@
 package org.springbus.ff.node;
 
 import org.springbus.ff.animate.FFAnimations;
+import org.springbus.ff.conf.FFBaseConf;
 import org.springbus.ff.core.FFBase;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class FFNode extends FFBase {
 
@@ -28,7 +28,7 @@ public class FFNode extends FFBase {
     private FFAnimations animations;
 
 
-    public FFNode(Map<String, Object> conf ) {
+    public FFNode(FFBaseConf  conf ) {
         super(conf);
         this.index = 0;
         this.fIndex = 0;

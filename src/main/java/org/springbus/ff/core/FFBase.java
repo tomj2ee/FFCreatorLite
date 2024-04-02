@@ -1,18 +1,20 @@
 package org.springbus.ff.core;
 
 
+import org.springbus.ff.conf.FFBaseConf;
+
 import java.util.Map;
 import java.util.UUID;
 
 public class FFBase {
-    protected Map<String, Object> conf;
+    protected FFBaseConf conf;
     protected String type;
     protected FFBase parent;
     protected String id;
 
-    public FFBase(Map<String, Object> conf) {
+    public FFBase(FFBaseConf conf) {
         this.conf = conf;
-        this.type = (String) conf.getOrDefault("type", "null");
+        this.type ="base";
         this.parent = null;
         generateId();
     }
