@@ -38,6 +38,7 @@ public class Effects {
 
 
 
+
     public static Pos mapping(String key, FFNode obj) {
         Pos val = null;
         int minDis = 100;
