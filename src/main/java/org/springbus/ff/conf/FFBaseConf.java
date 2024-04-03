@@ -85,4 +85,14 @@ public class FFBaseConf {
     private Float alpha;
     private  boolean pad;
     private String size;
+
+    public FFBaseConf(){
+
+    }
+    public  FFBaseConf(String showType,double time,double delay, boolean ing) {
+        this.showType=showType;
+        this.time=time;
+        this.delay=delay;
+        this.ing=ing;
+    }
 }

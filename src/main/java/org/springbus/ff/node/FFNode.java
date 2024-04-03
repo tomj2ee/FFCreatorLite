@@ -18,6 +18,7 @@ public class FFNode extends FFBase {
     protected int index;
     protected int fIndex;
     protected int  duration;
+    public  double rotate;
     protected float appearTime;
     protected List<Object> filters;
     protected List<Object> preFilters;
@@ -25,9 +26,8 @@ public class FFNode extends FFBase {
     protected FFCon parent;
     protected boolean hasInput;
     protected double scale;
-    protected double rotate;
-    protected double x;
-    protected double y;
+    public double x;
+    public double y;
     protected int w;
     protected int h;
 
@@ -51,7 +51,7 @@ public class FFNode extends FFBase {
         this.setWH(conf.getWidth(), conf.getHeight());
         this.setScale(conf.getScale());
         this.setRotate(conf.getRotate());
-        this.animations = new FFAnimations(animations);
+        this.animations = new FFAnimations(new ArrayList<>());
         this.animations.setTarget(this);
     }
 

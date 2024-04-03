@@ -7,9 +7,11 @@ import org.springbus.ff.filter.Pos;
 public class FFAnimation extends FFBase {
     private Double time = 2d;
     private Double delay = 0d;
+    public  FFBaseConf conf;
 
     public FFAnimation(FFBaseConf conf) {
         super(conf);
+        this.conf=conf;
         this.filter = null;
         this.isFFAni = true;
         this.type = "fade";

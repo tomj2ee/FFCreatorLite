@@ -14,6 +14,7 @@ public class FFCon extends FFBase {
     protected List<Object> filters;
     protected int vLength;
     protected int index;
+
     protected boolean hasInput;
     protected FFContext context;
     protected FFCommand  command;
