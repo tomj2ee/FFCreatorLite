@@ -92,7 +92,7 @@ public class ZoomRepFilter {
      * if(a<t<b, T1, if(t<c, C1, if(c<t<d, T2, C2)))
      * @private
      */
-public AniFilter mergeIntoNewZoompanFilter(List<AniFilter> tfilters) {
+public static AniFilter mergeIntoNewZoompanFilter(List<AniFilter> tfilters) {
     String elseReg = "_else_";
     String delayReg = "_delay_";
     String elseNelse = "_else_[0-9a-z]*_else_";

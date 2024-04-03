@@ -6,4 +6,10 @@ public class Pos {
 
     public  String sx;
     public String sy;
+
+    public  Double from;
+    public Double to;
+
+    public Pos posFrom;
+    public  Pos posTo;
 }

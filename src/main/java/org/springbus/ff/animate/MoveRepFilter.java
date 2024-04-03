@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MoveRepFilter {
-    public AniFilter toMoveFilter(FFBaseConf conf) {
+    public static AniFilter toMoveFilter(FFBaseConf conf) {
 
         Pos from = conf.getMoveFrom();
         Pos to = conf.getMoveTo();

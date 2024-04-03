@@ -1,15 +1,23 @@
 package org.springbus.ff.core;
 
 
+import org.springbus.ff.animate.AniFilter;
 import org.springbus.ff.conf.FFBaseConf;
+import org.springbus.ff.filter.Filter;
 
+import java.io.File;
 import java.util.UUID;
 
 public class FFBase {
     protected FFBaseConf conf;
     protected String type;
+    protected String showType;
+
     protected FFBase parent;
     protected String id;
+
+    protected  boolean isFFAni;
+    protected AniFilter filter;
 
     public FFBase(FFBaseConf conf) {
         this.conf = conf;

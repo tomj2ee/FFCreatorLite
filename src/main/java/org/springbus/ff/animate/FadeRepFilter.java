@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FadeRepFilter {
-    public AniFilter toFadeFilter(FFBaseConf conf) {
+    public  static  AniFilter toFadeFilter(FFBaseConf conf) {
 
         double time = conf.getTime();
         Double delay = conf.getDelay();
