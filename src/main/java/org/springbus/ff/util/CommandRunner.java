@@ -12,14 +12,13 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-public class FFmpegCommandRunner {
-    private static final Logger log = LoggerFactory.getLogger(FFmpegCommandRunner.class);
+public class CommandRunner {
+    private static final Logger log = LoggerFactory.getLogger(CommandRunner.class);
 
 
     /**
-     * 执行命令
+     * run process
      *
-     * @param commands
      * @return
      */
     public static String runProcess(List<String> commands) {
@@ -32,7 +31,7 @@ public class FFmpegCommandRunner {
     }
 
     /**
-     * 执行命令
+     * runProcess
      *
      * @return
      * @throws Exception
@@ -57,7 +56,7 @@ public class FFmpegCommandRunner {
             process = pb.start();
             result = handler.handler(process.getInputStream());
         } catch (Exception e) {
-            log.error("errorStream:{}", e);
+            log.error("errorStream:", e);
         } finally {
             if (null != process) {
                 try {

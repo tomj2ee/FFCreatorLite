@@ -4,6 +4,7 @@ import java.util.Map;
 
 public class Filter {
 
+    public String outputs;
     private String filter;
     private Map<String, Object> options;
 
@@ -14,5 +15,11 @@ public class Filter {
 
     public String getFilter() {
         return filter;
+    }
+    public Map<String, Object> getOptions(){
+        return options;
+    }
+    public String  getOptionKey(String k){
+        return options.get(k)+"";
     }
 }

@@ -12,11 +12,11 @@ public class FilterUtil {
     public static Object getOverlayFromFilters(List<Object> filters) {
         for (Object filter : filters) {
             if (filter instanceof String) {
-                if (Pattern.compile("^overlay=").matcher((String)filter).find()){
+                if (Pattern.compile("^overlay=").matcher((String) filter).find()) {
                     return filter;
                 }
             } else {
-                if (((Filter)filter).getFilter().equals("overlay")) {
+                if (((Filter) filter).getFilter().equals("overlay")) {
                     return filter;
                 }
             }
@@ -33,7 +33,7 @@ public class FilterUtil {
     }
 
     // Note: Use a Map to represent a JavaScript object
-    public static String createZoomFilter(Map<String, Double> params) {
+    public static String createZoomFilter(Map<String, Object> params) {
         StringBuilder filter = new StringBuilder("zoompan=");
         if (params.containsKey("z")) filter.append(String.format("z='%s'", params.get("z")));
         if (params.containsKey("d")) filter.append(String.format(":d='%s'", params.get("d")));
@@ -46,9 +46,9 @@ public class FilterUtil {
     }
 
     public static Filter createOverlayFilter(double x, double y) {
-        Map<String,Object> options=new HashMap<>();
-        options.put("x",x);
-        options.put("y",y);
+        Map<String, Object> options = new HashMap<>();
+        options.put("x", x);
+        options.put("y", y);
         return new Filter("overlay", options);
     }
 
@@ -74,7 +74,7 @@ public class FilterUtil {
     public static Object setInputsAndOutputs(Map<String, Object> params) {
         Object filter = params.get("filter");
         if (filter instanceof String) {
-            if (Pattern.compile("^overlay=").matcher((String)filter).find()) {
+            if (Pattern.compile("^overlay=").matcher((String) filter).find()) {
                 filter = String.format("[%s][%s]%s[%s]",
                         params.get("contextInputs"),
                         params.get("inputs"),
@@ -99,14 +99,30 @@ public class FilterUtil {
         return filter;
     }
 
-    public static String createFilterEnable(Map<String, Double> params) {
-        if (params.get("duration") <= 0) params.put("duration", 99999.0);
-        return String.format("between(t,%s,%s)", params.get("appearTime"), params.get("duration"));
+    public static String createFilterEnable(float duration, float appearTime) {
+        if (duration <= 0) duration = 99999.0f;
+        return String.format("between(t,%s,%s)", appearTime, duration);
     }
 
     public static List<String> makeFilterStrings(List<Filter> filters) {
         return filters.stream()
                 .map(Filter::toString)
                 .collect(Collectors.toList());
+    }
+
+    public static void addDurationToOverlay(List<Object> filters, float appearTime, float duration) {
+        Object overlay = getOverlayFromFilters(filters);
+        if (null == overlay) return;
+        if (appearTime <= 0) return;
+
+        int index = filters.indexOf(overlay);
+        String enable = createFilterEnable(appearTime, duration);
+        if (overlay instanceof String) {
+            overlay += ":enable='" + enable + "'";
+        } else {
+            Filter f = (Filter) overlay;
+            f.getOptions().put("enable", enable);
+        }
+        filters.set(index, overlay);
     }
 }

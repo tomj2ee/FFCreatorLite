@@ -8,7 +8,7 @@ public class DateUtil {
      * @return {string} hh:mm:ss result
      * @public
      */
-   public String secondsToHms(int sec) {
+   public static String secondsToHms(int sec) {
        int hours = sec / 3600;
        int minutes = (sec - hours * 3600) / 60;
        int seconds = sec - hours * 3600 - minutes * 60;
@@ -34,7 +34,7 @@ public class DateUtil {
      * @return {number} seconds second
      * @public
      */
-    public  int hmsToSeconds(String hms) {
+    public  static int hmsToSeconds(String hms) {
         String[] a = hms.split(":");
         int seconds = Integer.parseInt(a[0]) * 60 * 60 + Integer.parseInt(a[1]) * 60 + Integer.parseInt(a[2]);
         return seconds;
@@ -46,7 +46,7 @@ public class DateUtil {
      * @return {string} millisecondt
      * @public
      */
-   public int toMilliseconds(int time) {
+   public static  int toMilliseconds(int time) {
        if (time == 0) return 0;
        return time < 100 ? time * 1000 : time;
    }
@@ -57,7 +57,7 @@ public class DateUtil {
      * @return {string} second
      * @public
      */
-    public int toSeconds(int time) {
+    public  static int toSeconds(int time) {
         if (time == 0) return 0;
         return time > 100 ? time / 1000 : time;
     }

@@ -3,7 +3,6 @@ package org.springbus.ff.core;
 
 import org.springbus.ff.conf.FFBaseConf;
 
-import java.util.Map;
 import java.util.UUID;
 
 public class FFBase {

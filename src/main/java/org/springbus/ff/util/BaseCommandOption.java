@@ -125,7 +125,7 @@ public class BaseCommandOption {
        cmds.add("D:\\project\\FFCreatorLite\\examples\\output\\t.mp4");
        cmds.add("-y");
        cmds.add("D:\\project\\FFCreatorLite\\examples\\output\\%d.png");
-       FFmpegCommandRunner.runProcess(cmds);
+       CommandRunner.runProcess(cmds);
 
        System.out.println(cmds);
     }

@@ -1,17 +1,22 @@
 package org.springbus.ff.animate;
 
+import org.springbus.ff.filter.Filter;
+import org.springbus.ff.filter.FilterData;
+
 public class AniFilter {
     private String name;
-    private String filter;
+    private Filter filter;
     private String type;
-    private Object data;
+    private FilterData data;
     private String showType;
 
-    public AniFilter(String name, String filter, String showType,
-                     String type, Object data) {
+    public AniFilter(String name, Filter filter,
+                     String type,
+                     String showType,
+                     FilterData data) {
         this.name = name;
         this.filter = filter;
-        this.type = type;
+        this.type=type;
         this.data = data;
         this.showType = showType;
     }
@@ -24,11 +29,11 @@ public class AniFilter {
         this.name = name;
     }
 
-    public String getFilter() {
+    public Filter getFilter() {
         return filter;
     }
 
-    public void setFilter(String filter) {
+    public void setFilter(Filter filter) {
         this.filter = filter;
     }
 
@@ -40,11 +45,11 @@ public class AniFilter {
         this.type = type;
     }
 
-    public Object getData() {
+    public FilterData getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(FilterData data) {
         this.data = data;
     }
 
@@ -55,4 +60,7 @@ public class AniFilter {
     public void setShowType(String showType) {
         this.showType = showType;
     }
+
+
+
 }
